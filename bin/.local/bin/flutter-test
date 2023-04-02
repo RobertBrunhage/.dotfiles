@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+tmux-windowizer flutter-test
+
+file_location=$1
+tmux-windowizer flutter-test "flutter test ${file_location}"

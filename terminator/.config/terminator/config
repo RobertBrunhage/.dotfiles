@@ -1,0 +1,30 @@
+[global_config]
+  title_transmit_bg_color = "#2e3436"
+[keybindings]
+  new_tab = <Primary>t
+  close_term = <Primary>w
+  copy = <Primary>c
+  paste = <Primary>v
+  switch_to_tab_1 = <Primary>1
+  switch_to_tab_2 = <Primary>2
+  switch_to_tab_3 = <Primary>3
+  switch_to_tab_4 = <Primary>4
+  switch_to_tab_5 = <Primary>5
+  switch_to_tab_6 = <Primary>6
+  switch_to_tab_7 = <Primary>7
+  switch_to_tab_8 = <Primary>8
+  switch_to_tab_9 = <Primary>9
+[profiles]
+  [[default]]
+    icon_bell = False
+    cursor_color = "#eee8d5"
+    foreground_color = "#e6e0da"
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

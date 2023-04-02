@@ -1,0 +1,3 @@
+[submodule ".dotfiles-personal"]
+	path = .dotfiles-personal
+	url = https://github.com/RobertBrunhage/.dotfiles-personal
