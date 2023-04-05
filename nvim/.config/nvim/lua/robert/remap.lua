@@ -13,10 +13,11 @@ nnoremap("<leader>l", ":wincmd l<CR>")
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
-nnoremap("<M-j>", ":resize -2<CR>")
-nnoremap("<M-k>", ":resize +2<CR>")
-nnoremap("<M-h>", ":vertical resize -2<CR>")
-nnoremap("<M-l>", ":vertical resize +2<CR>")
+-- Using the built in keymaps instead
+-- nnoremap("<M-j>", ":resize -2<CR>")
+-- nnoremap("<M-k>", ":resize +2<CR>")
+-- nnoremap("<M-h>", ":vertical resize -2<CR>")
+-- nnoremap("<M-l>", ":vertical resize +2<CR>")
 
 nnoremap("<leader>sv", ":vsplit <CR>")
 nnoremap("<leader>sh", ":split <CR>")
