@@ -10,13 +10,16 @@ stow -D -t ~ nvim
 stow -D -t ~ tmux
 stow -D -t ~ zsh
 stow -D -t ~ yabai 
+stow -D -t ~ skhd
 
 cd .dotfiles-personal
 stow -t ~ git
 cd ..
+
 stow -t ~ bin 
 stow -t ~ core
 stow -t ~ nvim
 stow -t ~ tmux
 stow -t ~ zsh
 stow -t ~ yabai 
+stow -t ~ skhd
