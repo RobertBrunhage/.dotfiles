@@ -36,7 +36,7 @@ cmp.setup({
   }
 })
 
-local function on_attach(client, bufnr)
+lsp_zero.on_attach(function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -50,8 +50,7 @@ local function on_attach(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
   vim.keymap.set("n", "<leader>dl", function() vim.diagnostic.setqflist() end, opts)
 end
-
-lsp_zero.on_attach(on_attach)
+)
 
 vim.diagnostic.config({
   virtual_text = true,
@@ -59,7 +58,7 @@ vim.diagnostic.config({
 })
 
 lsp_config["dartls"].setup({
-  on_attach = on_attach,
+  on_attach = lsp_zero.on_attach,
   settings = {
     dart = {
       analysisExcludedFolders = {
