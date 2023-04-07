@@ -37,15 +37,15 @@ alt - t
 shift + alt - 0
 
 ## move window and focus desktop
-shift + alt - 1 
-shift + alt - 2 
-shift + alt - 3
-shift + alt - 4
-shift + alt - 5
-shift + alt - 6
-shift + alt - 7
-shift + alt - 8
-shift + alt - 9
+ctrl + cmd - 1 
+ctrl + cmd - 2 
+ctrl + cmd - 3
+ctrl + cmd - 4
+ctrl + cmd - 5
+ctrl + cmd - 6
+ctrl + cmd - 7
+ctrl + cmd - 8
+ctrl + cmd - 9
 
 # Terminal/Tmux management
 

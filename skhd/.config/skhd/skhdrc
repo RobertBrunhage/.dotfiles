@@ -30,12 +30,12 @@ alt - t : yabai -m window --toggle float;\
 shift + alt - 0 : yabai -m space --balance
 
 # move window and focus desktop
-shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1
-shift + alt - 2 : yabai -m window --space 2; yabai -m space --focus 2
-shift + alt - 3 : yabai -m window --space 3; yabai -m space --focus 3
-shift + alt - 4 : yabai -m window --space 4; yabai -m space --focus 4
-shift + alt - 5 : yabai -m window --space 5; yabai -m space --focus 5
-shift + alt - 6 : yabai -m window --space 6; yabai -m space --focus 6
-shift + alt - 7 : yabai -m window --space 7; yabai -m space --focus 7
-shift + alt - 8 : yabai -m window --space 8; yabai -m space --focus 8
-shift + alt - 9 : yabai -m window --space 9; yabai -m space --focus 9
+ctrl + cmd - 1 : yabai -m window --space 1; yabai -m space --focus 1
+ctrl + cmd - 2 : yabai -m window --space 2; yabai -m space --focus 2
+ctrl + cmd - 3 : yabai -m window --space 3; yabai -m space --focus 3
+ctrl + cmd - 4 : yabai -m window --space 4; yabai -m space --focus 4
+ctrl + cmd - 5 : yabai -m window --space 5; yabai -m space --focus 5
+ctrl + cmd - 6 : yabai -m window --space 6; yabai -m space --focus 6
+ctrl + cmd - 7 : yabai -m window --space 7; yabai -m space --focus 7
+ctrl + cmd - 8 : yabai -m window --space 8; yabai -m space --focus 8
+ctrl + cmd - 9 : yabai -m window --space 9; yabai -m space --focus 9
