@@ -24,5 +24,4 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("fzy_native")
-require("telescope").load_extension("flutter")
 require("telescope").load_extension("ui-select")

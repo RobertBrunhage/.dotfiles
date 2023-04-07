@@ -19,23 +19,23 @@ local plugins = {
   -- LSP
   {
     'VonHeikemen/lsp-zero.nvim',
+    branch = 'v2.x',
     dependencies = {
       -- LSP Support
       { 'neovim/nvim-lspconfig' },
-      { 'williamboman/mason.nvim' },
-      { 'williamboman/mason-lspconfig.nvim' },
+      {
+        -- Optional
+        'williamboman/mason.nvim',
+        build = function()
+          pcall(vim.cmd, 'MasonUpdate')
+        end,
+      },
+      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
       -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-nvim-lua' },
-
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' },
-      { 'rafamadriz/friendly-snippets' },
+      { 'hrsh7th/nvim-cmp' },     -- Required
+      { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+      { 'L3MON4D3/LuaSnip' },     -- Required
     }
   },
 
@@ -73,24 +73,14 @@ local plugins = {
   "nvim-treesitter/nvim-treesitter-context",
   -- { dir = "~/personal/projects/nvim-treesitter-context" },
 
-  -- Flutter
-  "akinsho/flutter-tools.nvim",
-  "dart-lang/dart-vim-plugin",
-
   -- Nice to haves
   "numToStr/Comment.nvim",
   "github/copilot.vim",
+  "j-hui/fidget.nvim",
 
   -- Git
   "tpope/vim-fugitive",
   "lewis6991/gitsigns.nvim",
-
-  -- Theme
-  -- use("olimorris/onedarkpro.nvim")
-  --   use {
-  --   "catppuccin/nvim",
-  --   as = "catppuccin",
-  -- }
 
   {
     'rose-pine/neovim',

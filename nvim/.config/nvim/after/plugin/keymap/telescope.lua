@@ -12,11 +12,5 @@ vim.keymap.set(
   ":lua require('telescope.builtin').lsp_document_symbols()<CR>",
   { noremap = true }
 )
-vim.keymap.set(
-  "n",
-  "<leader>tf",
-  ":lua require('telescope').extensions.flutter.commands()<CR>",
-  { noremap = true }
-)
 
 vim.keymap.set("n", "<C-p>", ":lua require'telescope.builtin'.git_files()<CR>", { noremap = true })
