@@ -1,5 +1,5 @@
 ---@diagnostic disable: unused-local
-local lsp_zero = require('lsp-zero').preset({})
+local lsp_zero = require('lsp-zero');
 local lsp_config = require("lspconfig");
 
 lsp_zero.preset('recommended')
@@ -11,14 +11,13 @@ lsp_zero.ensure_installed({
 })
 
 local cmp = require('cmp')
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
+
 local cmp_mappings = lsp_zero.defaults.cmp_mappings({
   ["<C-b>"] = cmp.mapping.scroll_docs(-4),
   ["<C-f>"] = cmp.mapping.scroll_docs(4),
   ["<C-y>"] = cmp.mapping.complete(),
   ["<C-e>"] = cmp.mapping.abort(),
-  -- ["<CR>"] = cmp.mapping.confirm({ select = true }),
-  ["<CR>"] = cmp.mapping.confirm(),
+  ["<CR>"] = cmp.mapping.confirm({ select = false }),
 })
 
 -- disable completion with tab
@@ -26,7 +25,7 @@ local cmp_mappings = lsp_zero.defaults.cmp_mappings({
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
-cmp.setup({
+lsp_zero.setup_nvim_cmp({
   mapping = cmp_mappings,
   sources = {
     { name = 'nvim_lsp' },
@@ -36,7 +35,7 @@ cmp.setup({
   }
 })
 
-lsp_zero.on_attach(function(client, bufnr)
+local on_attach = function(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -50,7 +49,8 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
   vim.keymap.set("n", "<leader>dl", function() vim.diagnostic.setqflist() end, opts)
 end
-)
+
+lsp_zero.on_attach(on_attach)
 
 vim.diagnostic.config({
   virtual_text = true,
@@ -58,14 +58,19 @@ vim.diagnostic.config({
 })
 
 lsp_config["dartls"].setup({
-  on_attach = lsp_zero.on_attach,
+  on_attach = on_attach,
+  root_dir = lsp_config.util.root_pattern('.git'),
   settings = {
     dart = {
       analysisExcludedFolders = {
         vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
         vim.fn.expand("$HOME/.pub-cache"),
         vim.fn.expand("/opt/homebrew/"),
+        vim.fn.expand("$HOME/tools/flutter/"),
       },
+      updateImportsOnRename = true,
+      completeFunctionCalls = true,
+      showTodos = true,
     }
   },
 })

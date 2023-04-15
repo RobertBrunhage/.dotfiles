@@ -19,30 +19,24 @@ local plugins = {
   -- LSP
   {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    branch = 'v1.x',
     dependencies = {
-      -- LSP Support
-      { 'neovim/nvim-lspconfig' },
-      {
-      -- Optional
-        'williamboman/mason.nvim',
-        build = function()
-          pcall(vim.cmd, 'MasonUpdate')
-        end,
-      },
-      { 'williamboman/mason-lspconfig.nvim' }, -- Optional
+		  -- LSP Support
+		  {'neovim/nvim-lspconfig'},
+		  {'williamboman/mason.nvim'},
+		  {'williamboman/mason-lspconfig.nvim'},
 
-      -- Autocompletion
-      { 'hrsh7th/nvim-cmp' },
-      { 'hrsh7th/cmp-buffer' },
-      { 'hrsh7th/cmp-path' },
-      { 'saadparwaiz1/cmp_luasnip' },
-      { 'hrsh7th/cmp-nvim-lsp' },
-      { 'hrsh7th/cmp-nvim-lua' },
+		  -- Autocompletion
+		  {'hrsh7th/nvim-cmp'},
+		  {'hrsh7th/cmp-buffer'},
+		  {'hrsh7th/cmp-path'},
+		  {'saadparwaiz1/cmp_luasnip'},
+		  {'hrsh7th/cmp-nvim-lsp'},
+		  {'hrsh7th/cmp-nvim-lua'},
 
-      -- Snippets
-      { 'L3MON4D3/LuaSnip' },
-      { 'rafamadriz/friendly-snippets' },
+		  -- Snippets
+		  {'L3MON4D3/LuaSnip'},
+		  {'rafamadriz/friendly-snippets'},
     }
   },
 
@@ -69,14 +63,14 @@ local plugins = {
   "Neevash/awesome-flutter-snippets",
 
   -- Language support
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-  },
   -- {
-  --   dir = "~/personal/projects/nvim-treesitter",
+  --   "nvim-treesitter/nvim-treesitter",
   --   build = ":TSUpdate",
   -- },
+  {
+    dir = "~/personal/projects/nvim-treesitter",
+    build = ":TSUpdate",
+  },
   "nvim-treesitter/nvim-treesitter-context",
   -- { dir = "~/personal/projects/nvim-treesitter-context" },
 
