@@ -1,8 +1,8 @@
----@diagnostic disable: unused-local
 local lsp_zero = require('lsp-zero');
 local lsp_config = require("lspconfig");
+local null_ls = require('null-ls')
 
-lsp_zero.preset('recommended')
+lsp_zero.preset('minimal')
 
 lsp_zero.ensure_installed({
   'tsserver',
@@ -10,32 +10,18 @@ lsp_zero.ensure_installed({
   'lua_ls',
 })
 
-local cmp = require('cmp')
-
-local cmp_mappings = lsp_zero.defaults.cmp_mappings({
-  ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-  ["<C-f>"] = cmp.mapping.scroll_docs(4),
-  ["<C-y>"] = cmp.mapping.complete(),
-  ["<C-e>"] = cmp.mapping.abort(),
-  ["<CR>"] = cmp.mapping.confirm({ select = false }),
-})
-
--- disable completion with tab
--- this helps with copilot setup
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp_zero.setup_nvim_cmp({
-  mapping = cmp_mappings,
-  sources = {
-    { name = 'nvim_lsp' },
-    { name = 'path' },
-    { name = 'luasnip' },
-    { name = 'buffer',  keyword_length = 5 },
+-- Fix Undefined global 'vim'
+lsp_zero.configure('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
+    }
   }
 })
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -75,6 +61,44 @@ lsp_config["dartls"].setup({
   },
 })
 
+
+-- lsp_config["solargraph"].setup({
+--   on_attach = on_attach,
+-- })
+
 lsp_zero.setup()
+
+local cmp = require('cmp')
+
+local cmp_mappings = cmp.mapping.preset.insert({
+  ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+  ["<C-f>"] = cmp.mapping.scroll_docs(4),
+  ["<C-y>"] = cmp.mapping.complete(),
+  ["<C-e>"] = cmp.mapping.abort(),
+  ["<CR>"] = cmp.mapping.confirm({ select = false }),
+});
+
+-- disable completion with tab
+-- this helps with copilot setup
+cmp_mappings['<Tab>'] = vim.NIL
+cmp_mappings['<S-Tab>'] = vim.NIL
+
+cmp.setup({
+  sources = {
+    { name = 'nvim_lsp' },
+    { name = 'path' },
+    { name = 'luasnip' },
+    { name = 'buffer',  keyword_length = 5 },
+  },
+  mapping = cmp_mappings,
+})
+
+null_ls.setup({
+  on_attach = on_attach,
+  sources = {
+    null_ls.builtins.formatting.prettier,
+    -- null_ls.builtins.diagnostics.eslint,
+  }
+})
 
 require("fidget").setup({})

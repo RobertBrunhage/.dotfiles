@@ -261,12 +261,12 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=bg+:#272638,hl+:#5fd7ff --col
 
 # Android Studio
 export PATH=$PATH:~/tools/android-studio/bin
-export PATH=$PATH:~/Android/Sdk/platform-tools
 export PATH=$PATH:~/Android/Sdk/emulator
 
 # Android path platform-tools used for adb
 export ANDROID_SDK_ROOT="$HOME/Library/Android/Sdk"
 export ANDROID_HOME="$HOME/Library/Android/Sdk"
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Flutter
 export PATH=$PATH:~/tools/flutter/bin
@@ -280,6 +280,9 @@ export PATH=$PATH:~/.local/bin
 
 # Rust
 export PATH=$PATH:~/.cargo/env
+
+# Ruby
+eval "$(rbenv init - zsh)"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
