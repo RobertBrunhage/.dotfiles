@@ -2015,11 +2015,11 @@
 			<key>Name</key>
 			<string>Light</string>
 			<key>Non Ascii Font</key>
-			<string>Monaco 16</string>
+			<string>Monaco 31</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>HackNerdFontComplete-Regular 24</string>
+			<string>HackNFM-Regular 26</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2076,6 +2076,10 @@
 			<integer>3</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
+			<key>Unicode Normalization</key>
+			<integer>0</integer>
+			<key>Unicode Version</key>
+			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>

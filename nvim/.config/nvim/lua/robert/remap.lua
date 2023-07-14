@@ -21,9 +21,12 @@ xnoremap("p", "pgvy")
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 
-nnoremap("<leader>f", function()
-  vim.lsp.buf.format()
-end)
+-- Using :Format now from formatter.nvim
+-- nnoremap("<leader>f", function()
+--   vim.lsp.buf.format()
+-- end)
+--
+nnoremap("<leader>f", ":Format<CR>")
 
 nnoremap("<S-d>", "<cmd>cnext<CR>zz")
 nnoremap("<S-u>", "<cmd>cprev<CR>zz")
