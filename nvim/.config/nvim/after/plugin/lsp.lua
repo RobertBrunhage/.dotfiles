@@ -21,7 +21,7 @@ lsp_zero.configure("lua_ls", {
 })
 
 local on_attach = function(_, bufnr)
-	local opts = { buffer = bufnr, remap = false }
+	local opts = { buffer = bufnr }
 
 	vim.keymap.set("n", "gd", function()
 		vim.lsp.buf.definition()
@@ -82,10 +82,6 @@ lsp_config["dartls"].setup({
 		},
 	},
 })
-
--- lsp_config["solargraph"].setup({
---   on_attach = on_attach,
--- })
 
 lsp_zero.setup()
 

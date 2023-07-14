@@ -66,15 +66,14 @@ local plugins = {
 	"Neevash/awesome-flutter-snippets",
 
 	-- Language support
-	{
-		"nvim-treesitter/nvim-treesitter",
-		build = ":TSUpdate",
-		commit = "33eb472b459f1d2bf49e16154726743ab3ca1c6d",
-	},
+	"dart-lang/dart-vim-plugin",
+
 	-- {
-	--   dir = "~/personal/projects/nvim-treesitter",
-	--   build = ":TSUpdate",
+	-- 	"nvim-treesitter/nvim-treesitter",
 	-- },
+	{
+		dir = "~/personal/projects/nvim-treesitter",
+	},
 	"nvim-treesitter/nvim-treesitter-context",
 	-- { dir = "~/personal/projects/nvim-treesitter-context" },
 

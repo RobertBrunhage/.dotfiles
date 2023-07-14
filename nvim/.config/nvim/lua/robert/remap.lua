@@ -1,36 +1,32 @@
-local nnoremap = require("robert.keymap").nnoremap
-local xnoremap = require("robert.keymap").xnoremap
-local vnoremap = require("robert.keymap").vnoremap
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-nnoremap("<leader>h", ":wincmd h<CR>")
-nnoremap("<leader>j", ":wincmd j<CR>")
-nnoremap("<leader>k", ":wincmd k<CR>")
-nnoremap("<leader>l", ":wincmd l<CR>")
+vim.keymap.set("n", "<leader>h", ":wincmd h<CR>")
+vim.keymap.set("n", "<leader>j", ":wincmd j<CR>")
+vim.keymap.set("n", "<leader>k", ":wincmd k<CR>")
+vim.keymap.set("n", "<leader>l", ":wincmd l<CR>")
 
-vnoremap("J", ":m '>+1<CR>gv=gv")
-vnoremap("K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-nnoremap("<leader>sv", ":vsplit <CR>")
-nnoremap("<leader>sh", ":split <CR>")
+vim.keymap.set("n", "<leader>sv", ":vsplit <CR>")
+vim.keymap.set("n", "<leader>sh", ":split <CR>")
 
-xnoremap("p", "pgvy")
+vim.keymap.set("x", "p", "pgvy")
 
-nnoremap("<C-d>", "<C-d>zz")
-nnoremap("<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Using :Format now from formatter.nvim
--- nnoremap("<leader>f", function()
+-- vim.keymap.set("n", "<leader>f", function()
 --   vim.lsp.buf.format()
--- end)
+-- end, { noremap = true })
 --
-nnoremap("<leader>f", ":Format<CR>")
+vim.keymap.set("n", "<leader>f", ":Format<CR>")
 
-nnoremap("<S-d>", "<cmd>cnext<CR>zz")
-nnoremap("<S-u>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<S-d>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<S-u>", "<cmd>cprev<CR>zz")
 
-nnoremap("<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
-nnoremap("<leader>ft", ":silent !flutter-test %:p<CR>")
-nnoremap("<leader>ss", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<CR>")
+vim.keymap.set("n", "<leader>ft", ":silent !flutter-test %:p<CR>")
+vim.keymap.set("n", "<leader>ss", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")

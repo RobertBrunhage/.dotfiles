@@ -5,5 +5,7 @@ require("nvim-treesitter.configs").setup({
 	},
 	indent = {
 		enable = true,
+		-- indentation in dart is broken
+		disable = { "dart" },
 	},
 })
