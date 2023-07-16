@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
+		"--branch=stable",
 		lazypath,
 	})
 end
@@ -65,7 +65,7 @@ local plugins = {
 	"RobertBrunhage/flutter-riverpod-snippets",
 	"Neevash/awesome-flutter-snippets",
 
-	-- Language support
+	-- Language support, mainly for indentation
 	"dart-lang/dart-vim-plugin",
 
 	-- {
@@ -84,7 +84,6 @@ local plugins = {
 
 	-- Git
 	"tpope/vim-fugitive",
-	"lewis6991/gitsigns.nvim",
 
 	-- UI
 	"f-person/auto-dark-mode.nvim",

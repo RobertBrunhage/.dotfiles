@@ -17,11 +17,6 @@ vim.keymap.set("x", "p", "pgvy")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
--- Using :Format now from formatter.nvim
--- vim.keymap.set("n", "<leader>f", function()
---   vim.lsp.buf.format()
--- end, { noremap = true })
---
 vim.keymap.set("n", "<leader>f", ":Format<CR>")
 
 vim.keymap.set("n", "<S-d>", "<cmd>cnext<CR>zz")

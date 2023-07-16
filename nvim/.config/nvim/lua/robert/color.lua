@@ -16,4 +16,5 @@ auto_dark_mode.setup({
 		vim.api.nvim_command("colorscheme rose-pine")
 	end,
 })
+
 auto_dark_mode.init()

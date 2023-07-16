@@ -16,7 +16,7 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
--- Stop auto commentint -> help fo-table
+-- Stop auto commenting -> help fo-table
 vim.opt.formatoptions:remove("r")
 vim.opt.formatoptions:remove("o")
 
