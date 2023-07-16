@@ -67,7 +67,6 @@ vim.diagnostic.config({
 
 lsp_config["dartls"].setup({
 	on_attach = on_attach,
-	root_dir = lsp_config.util.root_pattern(".git"),
 	settings = {
 		dart = {
 			analysisExcludedFolders = {
