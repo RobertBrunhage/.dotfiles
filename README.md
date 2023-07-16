@@ -3,7 +3,7 @@
 Clone this repo to either your Home directory or anywhere else
 
 ## Stow
-stow {folder} -t ~
+stow --restow {folder} -t ~
 
 `setup.sh` is all I use 🙃
 

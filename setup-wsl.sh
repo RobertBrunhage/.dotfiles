@@ -1,21 +1,11 @@
 #!/usr/bin/env bash
 
-stow -D -t ~ git
-stow -D -t ~ bin 
-stow -D -t ~ core
-stow -D -t ~ nvim
-stow -D -t ~ tmux
+stow --restow -t ~ git
+stow --restow -t ~ bin
+stow --restow -t ~ core
+stow --restow -t ~ nvim
+stow --restow -t ~ tmux
 # if [ isWsl ]; then
-  sudo stow -D -t / wsl
+  sudo stow --restow -t / wsl
 # fi
-stow -D -t ~ zsh
-
-stow -t ~ git
-stow -t ~ bin 
-stow -t ~ core
-stow -t ~ nvim
-stow -t ~ tmux
-# if [ isWsl ]; then
-  sudo stow -t / wsl
-# fi
-stow -t ~ zsh
+stow --restow -t ~ zsh
