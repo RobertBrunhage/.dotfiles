@@ -67,6 +67,21 @@ vim.diagnostic.config({
 
 lsp_config["dartls"].setup({
 	on_attach = on_attach,
+	cmd = {
+		"dart",
+		"language-server",
+		"--protocol=lsp",
+		-- "--port=8123",
+		-- "--instrumentation-log-file=/Users/robertbrunhage/Desktop/lsp-log.txt",
+	},
+	filetypes = { "dart" },
+	init_options = {
+		onlyAnalyzeProjectsWithOpenFiles = false,
+		suggestFromUnimportedLibraries = true,
+		closingLabels = true,
+		outline = false,
+		flutterOutline = false,
+	},
 	settings = {
 		dart = {
 			analysisExcludedFolders = {
@@ -110,3 +125,5 @@ cmp.setup({
 })
 
 require("fidget").setup({})
+
+require("dart-tools")

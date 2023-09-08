@@ -115,10 +115,8 @@ configure_prompt() {
 
 # The following block is surrounded by two delimiters.
 # These delimiters must not be modified. Thanks.
-# START KALI CONFIG VARIABLES
 PROMPT_ALTERNATIVE=oneline
 NEWLINE_BEFORE_PROMPT=yes
-# STOP KALI CONFIG VARIABLES
 
 if [ "$color_prompt" = yes ]; then
     # override default virtualenv indicator in prompt
@@ -281,6 +279,9 @@ export PATH=$PATH:~/.local/bin
 # Rust
 export PATH=$PATH:~/.cargo/env
 
+# Go
+export PATH=$PATH:$HOME/go/bin
+
 # Ruby
 eval "$(rbenv init - zsh)"
 
@@ -288,7 +289,7 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 # For loading the SSH key
 # /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
-# source $HOME/.keychain/$HOST-sh -e 
+# source $HOME/.keychain/$HOST-sh -e
 alias luamake=/home/robert/tools/sumneko/3rd/luamake/luamake
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
@@ -301,3 +302,8 @@ function flutter-watch(){
   resize-pane -y 5 -t 1 \;\
   select-pane -t 0 \;
 }
+
+## [Completion] 
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/robertbrunhage/.dart-cli-completion/zsh-config.zsh ]] && . /Users/robertbrunhage/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]

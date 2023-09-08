@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]
+  then
+    echo "Only support 1 argument which is the branch name"
+    exit 1;
+fi
+
+git switch -c ${1} && git add . && git commit -m WIP

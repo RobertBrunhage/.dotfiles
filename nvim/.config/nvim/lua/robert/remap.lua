@@ -17,8 +17,6 @@ vim.keymap.set("x", "p", "pgvy")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
-vim.keymap.set("n", "<leader>f", ":Format<CR>")
-
 vim.keymap.set("n", "<S-d>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<S-u>", "<cmd>cprev<CR>zz")
 

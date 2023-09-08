@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>tlb", function()
 end, {})
 
 vim.keymap.set("n", "<leader>tlrb", builtin.git_branches, {})
-vim.keymap.set("n", "<leader>tgg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>tgg", require("telescope").extensions.live_grep_args.live_grep_args)
 vim.keymap.set("n", "<leader>th", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>tc", builtin.commands, {})
 
@@ -41,4 +41,5 @@ require("telescope").setup({
 })
 
 require("telescope").load_extension("fzy_native")
+require("telescope").load_extension("live_grep_args")
 require("telescope").load_extension("ui-select")

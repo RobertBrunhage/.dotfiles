@@ -21,9 +21,6 @@ local plugins = {
 			{ "neovim/nvim-lspconfig" },
 			{
 				"williamboman/mason.nvim",
-				build = function()
-					pcall(vim.cmd, "MasonUpdate")
-				end,
 			},
 			{ "williamboman/mason-lspconfig.nvim" },
 
@@ -41,15 +38,19 @@ local plugins = {
 		},
 	},
 
+	-- Neovim development
+	{ "folke/neodev.nvim", opts = {} },
+
 	"mhartington/formatter.nvim",
 
 	-- File and folder management
+	"ThePrimeagen/harpoon",
 	"nvim-telescope/telescope.nvim",
 	"nvim-telescope/telescope-fzy-native.nvim",
+	"nvim-telescope/telescope-live-grep-args.nvim",
+	-- Neovim core fun in telescope (code action)
 	"nvim-telescope/telescope-ui-select.nvim",
-	"ThePrimeagen/harpoon",
 
-	-- POG
 	{
 		"jiaoshijie/undotree",
 		dependencies = {
@@ -57,30 +58,18 @@ local plugins = {
 		},
 	},
 
-	-- File explorer
-	"kyazdani42/nvim-tree.lua",
-	"ryanoasis/vim-devicons",
-
-	-- Snippets
-	"RobertBrunhage/flutter-riverpod-snippets",
-	"Neevash/awesome-flutter-snippets",
-
-	-- Language support, mainly for indentation
+	-- Language support, mainly for indentation because it's more stable than treesitter
 	"dart-lang/dart-vim-plugin",
 
-	-- {
-	-- 	"nvim-treesitter/nvim-treesitter",
-	-- },
 	{
-		dir = "~/personal/projects/nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter",
 	},
+	-- {
+	-- 	dir = "~/personal/projects/nvim-treesitter",
+	-- },
 	"nvim-treesitter/nvim-treesitter-context",
 	-- { dir = "~/personal/projects/nvim-treesitter-context" },
-
-	-- Nice to have
-	"numToStr/Comment.nvim",
-	"github/copilot.vim",
-	{ "j-hui/fidget.nvim", tag = "legacy" },
+	{ dir = "~/personal/projects/dart-tools.nvim" },
 
 	-- Git
 	"tpope/vim-fugitive",
@@ -91,6 +80,11 @@ local plugins = {
 		"rose-pine/neovim",
 		name = "rose-pine",
 	},
+
+	-- Nice to have
+	"numToStr/Comment.nvim",
+	"github/copilot.vim",
+	{ "j-hui/fidget.nvim", tag = "legacy" },
 }
 
 require("lazy").setup(plugins, {})
