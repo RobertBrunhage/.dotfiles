@@ -11,3 +11,4 @@ stow --restow -t ~ tmux
 stow --restow -t ~ zsh
 stow --restow -t ~ yabai
 stow --restow -t ~ skhd
+stow --restow -t ~ alacritty

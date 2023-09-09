@@ -1,64 +1,30 @@
-local lsp_zero = require("lsp-zero")
 local lsp_config = require("lspconfig")
+local cmp = require("cmp")
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lsp_zero.preset("minimal")
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setqflist)
 
-lsp_zero.ensure_installed({
-	"tsserver",
-	"eslint",
-	"lua_ls",
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		-- Buffer local mappings.
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		local opts = { buffer = ev.buf }
+
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+		vim.keymap.set({ "n", "i" }, "<C-b>", function()
+			vim.lsp.buf.inlay_hint(0, nil)
+		end, opts)
+	end,
 })
-
--- Fix Undefined global 'vim'
-lsp_zero.configure("lua_ls", {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { "vim" },
-			},
-		},
-	},
-})
-
-local on_attach = function(_, bufnr)
-	local opts = { buffer = bufnr }
-
-	vim.keymap.set("n", "gd", function()
-		vim.lsp.buf.definition()
-	end, opts)
-	vim.keymap.set("n", "K", function()
-		vim.lsp.buf.hover()
-	end, opts)
-	vim.keymap.set("n", "<leader>e", function()
-		vim.diagnostic.open_float()
-	end, opts)
-	vim.keymap.set("n", "[d", function()
-		vim.diagnostic.goto_prev()
-	end, opts)
-	vim.keymap.set("n", "]d", function()
-		vim.diagnostic.goto_next()
-	end, opts)
-	vim.keymap.set("n", "<leader>ca", function()
-		vim.lsp.buf.code_action()
-	end, opts)
-	vim.keymap.set("n", "<leader>gr", function()
-		vim.lsp.buf.references()
-	end, opts)
-	vim.keymap.set("n", "<leader>rn", function()
-		vim.lsp.buf.rename()
-	end, opts)
-	vim.keymap.set({ "n", "i" }, "<C-b>", function()
-		vim.lsp.buf.inlay_hint(0, nil)
-	end, opts)
-	vim.keymap.set("i", "<C-h>", function()
-		vim.lsp.buf.signature_help()
-	end, opts)
-	vim.keymap.set("n", "<leader>dl", function()
-		vim.diagnostic.setqflist()
-	end, opts)
-end
-
-lsp_zero.on_attach(on_attach)
 
 vim.diagnostic.config({
 	virtual_text = true,
@@ -66,7 +32,7 @@ vim.diagnostic.config({
 })
 
 lsp_config["dartls"].setup({
-	on_attach = on_attach,
+	capabilities = capabilities,
 	cmd = {
 		"dart",
 		"language-server",
@@ -97,9 +63,13 @@ lsp_config["dartls"].setup({
 	},
 })
 
-lsp_zero.setup()
+lsp_config.tsserver.setup({
+	capabilities = capabilities,
+})
 
-local cmp = require("cmp")
+lsp_config.lua_ls.setup({
+	capabilities = capabilities,
+})
 
 local cmp_mappings = cmp.mapping.preset.insert({
 	["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -114,15 +84,26 @@ local cmp_mappings = cmp.mapping.preset.insert({
 cmp_mappings["<Tab>"] = vim.NIL
 cmp_mappings["<S-Tab>"] = vim.NIL
 
+---@diagnostic disable-next-line: missing-fields
 cmp.setup({
+	snippet = {
+		-- REQUIRED - you must specify a snippet engine
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "luasnip" },
-		{ name = "buffer", keyword_length = 5 },
+		{ name = "buffer" },
 	},
 	mapping = cmp_mappings,
 })
+
+-- Snippets will load from LSP but this makes sure to
+-- load local and plugin snippets ASAP
+require("luasnip.loaders.from_vscode").lazy_load()
 
 require("fidget").setup({})
 

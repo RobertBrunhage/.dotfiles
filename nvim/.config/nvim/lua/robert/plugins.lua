@@ -13,30 +13,21 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	-- LSP
-	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v2.x",
-		dependencies = {
-			-- LSP Support
-			{ "neovim/nvim-lspconfig" },
-			{
-				"williamboman/mason.nvim",
-			},
-			{ "williamboman/mason-lspconfig.nvim" },
+	{ "neovim/nvim-lspconfig" },
 
-			-- Autocompletion
-			{ "hrsh7th/nvim-cmp" },
-			{ "hrsh7th/cmp-buffer" },
-			{ "hrsh7th/cmp-path" },
-			{ "saadparwaiz1/cmp_luasnip" },
-			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-nvim-lua" },
+	-- Autocompletion
+  { "hrsh7th/cmp-nvim-lsp" },
+  { "hrsh7th/cmp-buffer" },
+  { "hrsh7th/cmp-path" },
+	{ "hrsh7th/nvim-cmp" },
+	{ "saadparwaiz1/cmp_luasnip" },
+	{ "hrsh7th/cmp-nvim-lua" },
 
-			-- Snippets
-			{ "L3MON4D3/LuaSnip" },
-			{ "rafamadriz/friendly-snippets" },
-		},
-	},
+	-- Snippets engine
+	{ "L3MON4D3/LuaSnip" },
+
+	-- snippets
+	{ "rafamadriz/friendly-snippets" },
 
 	-- Neovim development
 	{ "folke/neodev.nvim", opts = {} },

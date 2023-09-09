@@ -1,11 +1,25 @@
+---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "dart" },
+	ensure_installed = {
+		"dart",
+		"lua",
+		"javascript",
+		"typescript",
+		"tsx",
+		"json",
+		"html",
+		"css",
+		"scss",
+		"yaml",
+		"bash",
+	},
 	highlight = {
 		enable = true, -- false will disable the whole extension
 	},
 	indent = {
 		enable = true,
-		-- indentation in dart is borken and I am too lazy
+		-- indentation in dart is borken and I am too lazy, so using a plugin to
+		-- handle the indentation
 		disable = { "dart" },
 	},
 })
