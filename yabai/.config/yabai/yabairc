@@ -26,7 +26,7 @@ yabai -m config mouse_action2 resize
 yabai -m mouse_drop_action swap
 
 yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Google Chrome$" manage=off
+# yabai -m rule --add app="^Google Chrome$" manage=off
 yabai -m rule --add app="OBS" manage=off
 yabai -m rule --add app="Hearthstone" manage=off
 yabai -m rule --add app="Battle.net" manage=off
