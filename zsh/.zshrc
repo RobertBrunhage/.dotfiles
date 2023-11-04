@@ -283,7 +283,7 @@ export PATH=$PATH:~/.cargo/env
 export PATH=$PATH:$HOME/go/bin
 
 # Ruby
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
 
 bindkey -s ^f "tmux-sessionizer\n"
 
