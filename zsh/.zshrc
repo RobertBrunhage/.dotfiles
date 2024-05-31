@@ -303,6 +303,10 @@ function flutter-watch(){
   select-pane -t 0 \;
 }
 
+function adb-screenshot() {
+ adb exec-out screencap -p > /tmp/screenshot.png && open /tmp/screenshot.png
+}
+
 ## [Completion] 
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /Users/robertbrunhage/.dart-cli-completion/zsh-config.zsh ]] && . /Users/robertbrunhage/.dart-cli-completion/zsh-config.zsh || true
