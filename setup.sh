@@ -4,6 +4,7 @@ cd .dotfiles-personal
 stow --restow -t ~ git
 cd ..
 
+stow --restow -t ~ aerospace
 stow --restow -t ~ bin
 stow --restow -t ~ core
 stow --restow -t ~ nvim

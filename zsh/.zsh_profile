@@ -1,0 +1,40 @@
+# Start ssh-agent if it's not running and add the ssh key if not already added
+if [ -z "$SSH_AUTH_SOCK" ] || ! ssh-add -l | grep -q "$(ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}')"; then
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
+fi
+
+# Android Studio
+export PATH=$PATH:~/tools/android-studio/bin
+export PATH=$PATH:~/Android/Sdk/emulator
+
+# Android path platform-tools used for adb
+export ANDROID_SDK_ROOT="$HOME/Library/Android/Sdk"
+export ANDROID_HOME="$HOME/Library/Android/Sdk"
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Flutter
+export PATH=$PATH:~/tools/flutter/bin
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+# Lua
+export PATH=$PATH:~/tools/lua-language-server/bin
+
+# scripts
+export PATH=$PATH:~/.local/bin
+
+# Rust
+export PATH=$PATH:~/.cargo/env
+
+# Go
+export PATH=$PATH:$HOME/go/bin
+
+# Ruby
+# eval "$(rbenv init - zsh)"
+
+# For loading the SSH key
+# /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
+# source $HOME/.keychain/$HOST-sh -e
+alias luamake=/home/robert/tools/sumneko/3rd/luamake/luamake
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
