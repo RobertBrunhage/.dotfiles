@@ -24,7 +24,7 @@ export PATH=$PATH:~/tools/lua-language-server/bin
 export PATH=$PATH:~/.local/bin
 
 # Rust
-export PATH=$PATH:~/.cargo/env
+export PATH=$PATH:$HOME/.cargo/bin
 
 # Go
 export PATH=$PATH:$HOME/go/bin
@@ -38,3 +38,5 @@ export PATH=$PATH:$HOME/go/bin
 alias luamake=/home/robert/tools/sumneko/3rd/luamake/luamake
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+export ANTHROPIC_API_KEY="ADD_KEY_HERE"
