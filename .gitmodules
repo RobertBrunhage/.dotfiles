@@ -1,6 +1,6 @@
 [submodule ".dotfiles-personal"]
 	path = .dotfiles-personal
-	url = https://github.com/RobertBrunhage/.dotfiles-personal
+	url = git@github.com:RobertBrunhage/.dotfiles-personal.git
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = git@github.com:RobertBrunhage/nvim.git
