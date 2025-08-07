@@ -21,3 +21,11 @@ function adb-screenshot() {
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /Users/robertbrunhage/.dart-cli-completion/zsh-config.zsh ]] && . /Users/robertbrunhage/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
+export PATH="/Users/robertbrunhage/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/Users/robertbrunhage/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# Added by Windsurf
+export PATH="/Users/robertbrunhage/.codeium/windsurf/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"

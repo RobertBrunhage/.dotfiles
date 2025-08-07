@@ -1,8 +1,8 @@
 # Start ssh-agent if it's not running and add the ssh key if not already added
-if [ -z "$SSH_AUTH_SOCK" ] || ! ssh-add -l | grep -q "$(ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}')"; then
-    eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/id_rsa
-fi
+# if [ -z "$SSH_AUTH_SOCK" ] || ! ssh-add -l | grep -q "$(ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}')"; then
+#     eval "$(ssh-agent -s)"
+#     ssh-add ~/.ssh/id_rsa
+# fi
 
 # Android Studio
 export PATH=$PATH:~/tools/android-studio/bin
@@ -30,7 +30,7 @@ export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/go/bin
 
 # Ruby
-# eval "$(rbenv init - zsh)"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 # For loading the SSH key
 # /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
@@ -38,5 +38,3 @@ export PATH=$PATH:$HOME/go/bin
 alias luamake=/home/robert/tools/sumneko/3rd/luamake/luamake
 export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
-
-export ANTHROPIC_API_KEY="ADD_KEY_HERE"
