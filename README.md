@@ -1,18 +1,30 @@
-# STOW (Linux and Mac)
+# Dotfiles Setup (Linux & macOS)
 
-Clone this repo to either your Home directory or anywhere else
+Easily manage your development environment with these dotfiles.
 
-## Stow
-stow --restow {folder} -t ~
+## Quick Start
 
-`setup.sh` is all I use 🙃
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/RobertBrunhage/.dotfiles.git
+   ```
 
-## Out of context
-I did write a small wiki for myself when I used Windows which I probably should add more details too
+2. **Run the install script:**
+   ```bash
+   ./install.sh
+   ```
 
-[wiki](https://docs.page/robertbrunhage/robert_wiki)
+## What does the install script do?
 
-## Disclaimer
-Hey either future self or some nerd
+- Runs setup scripts for your OS (macOS or Linux).
+- Optionally downloads extra configuration files (git submodules).
+- Optionally symlinks dotfiles to your home directory using [stow](https://www.gnu.org/software/stow/).
 
-I used this before on both Windows and Linux but I would assume they are borken by now.
+## Customization
+
+- Add or edit files in the relevant folders (`nvim/`, `zsh/`, etc.).
+- To symlink a new folder, add it to the `install.sh` script.
+
+---
+
+For questions or improvements, feel free to open an issue or PR.
