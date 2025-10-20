@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Stolen from ThePrimeagen ;)
+# Stolen from ThePrimeagen
 
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/projects ~/projects/hungrimind ~/projects/work ~/ -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/projects ~/projects/hungrimind ~/projects/work ~/ ~/.config/nvim -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

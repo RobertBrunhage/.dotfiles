@@ -51,7 +51,6 @@ if [[ -z "$run_stow" || "$run_stow" =~ ^[Yy]$ ]]; then
 
     stow --restow -t ~ bin
     stow --restow -t ~ core
-    stow --restow -t ~ nvim
     stow --restow -t ~ tmux
     stow --restow -t ~ zsh
     stow --restow -t ~ yabai
