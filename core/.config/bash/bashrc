@@ -1,4 +1,4 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+# Shared bash setup, loaded by ~/.bashrc on each machine (see link.sh)
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -153,6 +153,3 @@ if ! shopt -oq posix; then
   fi
 fi
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-
-# Setup for this machine only (work tools etc), kept out of this repo
-[ -f ~/.bashrc.local ] && . ~/.bashrc.local

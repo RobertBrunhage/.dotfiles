@@ -38,29 +38,9 @@ else
     exit 1
 fi
 
-# Ensure git submodules are initialized and updated
-read -p "This will download/update extra configuration files used by your dotfiles (git submodules). Do you want to run this step? [Y/n]: " run_submodule
-if [[ -z "$run_submodule" || "$run_submodule" =~ ^[Yy]$ ]]; then
-    git submodule update --init --recursive
-else
-    echo "Skipping git submodule update."
-fi
-
-
 read -p "This will create symlinks for your dotfiles in your home directory, making them active. Do you want to run this step? [Y/n]: " run_stow
 if [[ -z "$run_stow" || "$run_stow" =~ ^[Yy]$ ]]; then
-    cd .dotfiles-personal
-    stow --restow -t ~ git
-    cd ..
-
-    stow --restow -t ~ bin
-    stow --restow -t ~ core
-    stow --restow -t ~ tmux
-    stow --restow -t ~ zsh
-    stow --restow -t ~ yabai
-    stow --restow -t ~ skhd
-    stow --restow -t ~ ghostty
-    echo "All stow symlinking completed!"
+    "$(dirname "$0")/link.sh"
 else
     echo "Skipping stow symlinking."
 fi

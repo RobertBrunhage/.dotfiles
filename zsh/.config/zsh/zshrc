@@ -1,4 +1,5 @@
-source ~/.zsh_profile
+# Shared zsh setup, loaded by ~/.zshrc on each machine (see link.sh)
+source ~/.config/zsh/zsh_profile
 
 export PS1='%~ % '
 
@@ -37,6 +38,3 @@ export PATH="$HOME/.kellix/bin:$PATH"
 # Maestro CLI and its required Java 17 runtime
 export JAVA_HOME="/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home"
 export PATH="$JAVA_HOME/bin:$HOME/.maestro/bin:$PATH"
-
-# Setup for this machine only (work tools etc), kept out of this repo
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local

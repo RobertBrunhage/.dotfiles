@@ -1,0 +1,21 @@
+[user]
+	name = Robert Brunhage
+	# GitHub noreply address, keeps the real email out of public commits
+	email = 26344867+RobertBrunhage@users.noreply.github.com
+[pull]
+	rebase = true
+[push]
+  autoSetupRemote = true
+[alias]
+	pushf = push --force-with-lease
+	st = status
+  diffl = diff --oneline
+	nlog = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  gone = ! "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+[fetch]
+	prune = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
