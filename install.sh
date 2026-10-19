@@ -13,6 +13,10 @@ if [[ "$OS" == "Darwin" ]]; then
         if [ -f "$script" ]; then
             echo "Running $(basename "$script")..."
             "$script"
+            # core.sh may have just installed Homebrew, put brew on PATH for the next scripts
+            for brew in /opt/homebrew/bin/brew /usr/local/bin/brew; do
+                [ -x "$brew" ] && eval "$("$brew" shellenv)" && break
+            done
         fi
     done
     echo "All setup scripts executed for macOS."

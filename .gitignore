@@ -2,3 +2,10 @@ nvim/plugged/
 nvim-config/
 bin/.local/share/
 bin/.local/state/
+
+# ~/.local/bin links to bin/.local/bin, so installers (claude, kiro-cli, ...) drop
+# their binaries in this repo. Only our own scripts are tracked, new ones need `git add -f`
+bin/.local/bin/*
+!bin/.local/bin/flutter-test
+!bin/.local/bin/git-wip
+!bin/.local/bin/tmux-sessionizer

@@ -27,3 +27,6 @@
 # fi
 # . "$HOME/.cargo/env"
 export LC_ALL=en_US.UTF-8
+
+# Tokens and other secrets live outside this repo
+[ -f ~/.secrets ] && source ~/.secrets
