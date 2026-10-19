@@ -59,6 +59,7 @@ if [[ -z "$run_stow" || "$run_stow" =~ ^[Yy]$ ]]; then
     stow --restow -t ~ zsh
     stow --restow -t ~ yabai
     stow --restow -t ~ skhd
+    stow --restow -t ~ ghostty
     echo "All stow symlinking completed!"
 else
     echo "Skipping stow symlinking."

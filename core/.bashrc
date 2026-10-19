@@ -152,4 +152,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-. "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# Setup for this machine only (work tools etc), kept out of this repo
+[ -f ~/.bashrc.local ] && . ~/.bashrc.local

@@ -1,0 +1,2 @@
+# Follows the system light/dark appearance. tmux and Neovim pick up the change from the terminal.
+theme = light:Rose Pine Dawn,dark:Rose Pine

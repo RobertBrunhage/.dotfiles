@@ -17,15 +17,26 @@ function adb-screenshot() {
  adb exec-out screencap -p > /tmp/screenshot.png && open /tmp/screenshot.png
 }
 
-## [Completion] 
+## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /Users/robertbrunhage/.dart-cli-completion/zsh-config.zsh ]] && . /Users/robertbrunhage/.dart-cli-completion/zsh-config.zsh || true
+[[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
-export PATH="/Users/robertbrunhage/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/Users/robertbrunhage/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
-# Added by Windsurf
-export PATH="/Users/robertbrunhage/.codeium/windsurf/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
-export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+# Node, keg-only so it isn't in the Homebrew bin
 export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+
+# opencode
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# steve
+export PATH="$HOME/.steve/bin:$PATH"
+
+# kellix
+export PATH="$HOME/.kellix/bin:$PATH"
+
+# Maestro CLI and its required Java 17 runtime
+export JAVA_HOME="/opt/homebrew/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home"
+export PATH="$JAVA_HOME/bin:$HOME/.maestro/bin:$PATH"
+
+# Setup for this machine only (work tools etc), kept out of this repo
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

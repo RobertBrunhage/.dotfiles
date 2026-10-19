@@ -17,9 +17,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:~/tools/flutter/bin
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
-# Lua
-export PATH=$PATH:~/tools/lua-language-server/bin
-
 # scripts
 export PATH=$PATH:~/.local/bin
 
@@ -35,6 +32,3 @@ export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 # For loading the SSH key
 # /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
 # source $HOME/.keychain/$HOST-sh -e
-alias luamake=/home/robert/tools/sumneko/3rd/luamake/luamake
-export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"

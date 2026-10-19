@@ -1,8 +1,7 @@
 #!/bin/zsh
 # Neovim setup for macOS
 
-# ripgrep and tree-sitter-cli are used by the config (see its README)
-brew install neovim ripgrep tree-sitter-cli
+# Neovim and the tools the config needs are installed by the Brewfile (core.sh)
 
 # Get the directory where this script is located
 SCRIPT_DIR="$(cd "$(dirname "${0:A}")" && pwd)"

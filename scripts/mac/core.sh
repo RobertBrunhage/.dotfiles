@@ -11,7 +11,8 @@ for brew in /opt/homebrew/bin/brew /usr/local/bin/brew; do
   [ -x "$brew" ] && eval "$("$brew" shellenv)" && break
 done
 
-# The other scripts and install.sh symlink with stow
-brew install stow
+# Everything installed with Homebrew is listed in the Brewfile
+DOTFILES_DIR="$(dirname "$(dirname "$(dirname "${0:A}")")")"
+brew bundle --file="$DOTFILES_DIR/Brewfile"
 
-echo "Core setup complete (Homebrew installed)."
+echo "Core setup complete (Homebrew packages installed)."
